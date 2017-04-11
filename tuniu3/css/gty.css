@@ -1,0 +1,116 @@
+.gty{
+    width: 100%;
+    height: 1700px;
+    background: white;
+    display: none;
+    margin-top: 5px;
+}
+.center3{
+    width: 1192px;
+    height: 1500px;
+    margin: 0 auto;
+    background: white;
+    position: relative;
+}
+.center3_top{
+    width: 1190px;
+    height: 50px;
+    background-image: url("../img/gty2.png");
+}
+.center3_left{
+    width: 190px;
+    height: 370px;
+    background-image: url("../img/gty_3.png");
+    position: absolute;
+    left: 0;
+}
+.center3_scroll{
+    width: 990px;
+    height: 370px;
+    white-space:nowrap;
+    overflow:hidden;
+    position:relative;
+    float: right;
+}
+#loop{
+    white-space:nowrap;
+    position: absolute;
+    left: 0;
+
+}
+.center3 .gty5{
+    width: 1190px;
+    height: 530px;
+    position: relative;
+}
+.gty5_mb1{
+    width: 980px;
+    height: 235px;
+    position: absolute;
+    /*background: green;*/
+    top: 369px;
+    left: 198px;
+}
+.gty5_mb1 div{
+    width: 221px;
+    height: 125px;
+    float: left;
+    background:black;
+    margin-left: 22px;
+    margin-top: 110px;
+    opacity: 0;
+    color: white;
+    position:relative;
+    /*display: none;*/
+}
+.gty5_mb1 div a{
+    position: absolute;
+    opacity: 1;
+    color: white;
+    font-size: 14px;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+.gty5_mb1 div:hover{
+    opacity:0.7;
+}
+.center3 .gty6{
+    width: 1190px;
+    height: 600px;
+    position: relative;
+    margin-top: 430px;
+}
+.gty6_mb2{
+    width: 980px;
+    height: 235px;
+    position: absolute;
+    /*background: green;*/
+    top: -14px;
+    left: 198px;
+}
+.gty6_mb2 div{
+    width: 221px;
+    height: 125px;
+    float: left;
+    background:black;
+    margin-left: 22px;
+    margin-top: 110px;
+    opacity: 0;
+    color: white;
+    position:relative;
+    /*display: none;*/
+}
+.gty6_mb2 div a{
+    position: absolute;
+    opacity: 1;
+    color: white;
+    font-size: 14px;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+.gty6_mb2 div:hover{
+    opacity:0.7;
+}
+#gty5{
+    margin-top:50px;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 微软雅黑;
+        }
+        .bg{
+            width: 100%;
+            height: 800px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 20;
+            cursor: pointer ;
+            /*display: none;*/
+        }
+        .bg .mb{
+            width: 100%;
+            height:100%;
+            background: #dddddd;
+            opacity: 0.5;
+            position: absolute;
+            top:0;
+            left: 0;
+            z-index: 21;
+        }
+        .bg .logo{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius:300px ;
+            background: white;
+            top: 50%;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            z-index: 22;
+            text-align: center;
+            line-height: 300px;
+        }
+        .logo p{
+            position: absolute;
+            top: -100px;
+            left: 40px;
+            font-family: 微软雅黑;
+            color: #666666;
+        }
+        .logo h1{
+            position:absolute ;
+            top: -40px;
+            right: -300px;
+            display: none;
+            color: #666666;
+        }
+        .index{
+            width: 100%;
+            height: 2000px;
+            position: relative;
+        }
+        .header_top{
+            width: 100%;
+            height: 60px;
+            background:white;
+            position: relative;
+            border-bottom: 1px #666666 solid;
+        }
+        #hot{
+            position: absolute;
+            left: 460px;
+            top: 8px;
+            z-index: 2;
+        }
+        .header_top_dl{
+            position: absolute;
+            right: 190px;
+        }
+        .header_top_dl li{
+            font-size: 13px;
+        }
+        .header_top_dl li:first-child:hover{
+            font-size: 18px;
+            color: red;
+        }
+        .header_top_dl li:last-child:hover{
+            color: red;
+        }
+        .header_top ul li{
+            width: 100px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            float: left;
+            cursor: pointer;
+        }
+        .header_top ul li.zC{
+            background:#00c1de;
+        }
+        .header_top_nav{
+            position: absolute;
+            left: 190px;
+        }
+        #logo{
+            float: left;
+        }
+        .header_top_nav li{
+            font-size: 18px;
+            float: left;
+        }
+        .header_top_nav li.active{
+            color: #00c1de;
+            border-bottom: 3px #00c1de solid;
+        }
+        .header_top_nav li:hover{
+            color: #00c1de;
+            border-bottom: 3px #00c1de solid;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <img src="css/bg.jpg" width="100%" height="800px">
+    <div class="mb"></div>
+    <div class="logo">
+        <p>要旅游，找途牛！</p>
+        <img src="css/logo.png">
+        <h1>Let's Go!.》》》</h1>
+    </div>
+</div>
+<script>
+    var bg=document.querySelector(".bg");
+    var bg_img=document.querySelector(".bg img");
+    var logo=document.querySelector(".logo");
+    var lg_img=document.querySelector(".logo img");
+    var mb=document.querySelector(".mb");
+    var h1=document.querySelector(".logo h1");
+    logo.addEventListener("mouseover",function(){
+        mb.style.opacity=0;
+        mb.style.transition="opacity 1s";
+        h1.style.display="block"
+    });
+    logo.addEventListener("mouseout",function(){
+        mb.style.opacity=0.5;
+        mb.style.transition="opacity 1s";
+        h1.style.display="none"
+    });
+    logo.addEventListener("click",function(){
+        //bg.style.left=-1600+"px";
+        //bg.style.transition="left 2s";
+        bg.style.opacity=0;
+        bg.style.transition="opacity 2s";
+
+        setTimeout(function(){
+            window.location="index.html";
+        },1500)
+    });
+</script>
+</body>
+</html>

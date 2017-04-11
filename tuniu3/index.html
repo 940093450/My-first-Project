@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/zxhd.css" rel="stylesheet" type="text/css">
+    <link href="css/sy.css" rel="stylesheet" type="text/css">
+    <link href="css/gty.css" rel="stylesheet" type="text/css">
+    <link href="css/zzy.css" rel="stylesheet" type="text/css">
+    <link href="css/gl.css" rel="stylesheet" type="text/css">
+    <link href="css/gd.css" rel="stylesheet" type="text/css">
+    <script src="js/tools.js"></script>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/websql.js"></script>
+    <script src="js/reg.js"></script>
+    <!--<script src="js/sessionSrotage.js"></script>-->
+    <script src="js/widthoutlogin.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-family: 微软雅黑;
+        }
+        .index{
+            width: 100%;
+            height: 2000px;
+            position: relative;
+        }
+        .header_top{
+            width: 100%;
+            height: 60px;
+            background:white;
+            position: relative;
+            border-bottom: 1px #666666 solid;
+        }
+        #hot{
+            position: absolute;
+            left: 460px;
+            top: 8px;
+            z-index: 2;
+        }
+        .header_top_dl{
+            position: absolute;
+            left: 1093px;
+        }
+
+        /*.header_top_dl li{
+            font-size: 13px;
+        }*/
+        .header_top_dl li:first-child:hover{
+            font-size: 18px;
+            color: red;
+        }
+        .header_top_dl li:last-child:hover{
+            color: red;
+        }
+        .header_top ul li{
+            width: 100px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            float: left;
+            cursor: pointer;
+        }
+        .header_top ul li.zC{
+            background:#00c1de;
+        }
+        .header_top_dl .weiDengLu{
+            display:block;
+        }
+        .header_top_dl .yiDengLu{
+            display:none;
+        }
+        .header_top_dl li:nth-child(3){
+            text-align: right;
+            padding-right: 5px;
+        }
+        #vipLogo{
+        }
+        #xinXi{
+            width: 308px;
+            height: 110px;
+            position: absolute;
+            right: -100px;
+            top: 55px;
+            z-index: 333333;
+            box-shadow: 0 0 5px #ddd;
+            background: white;
+            background: url("login/5.png") no-repeat;
+            display: none;
+        }
+        #zhuX{
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            width: 40px;
+            height: 25px;
+            line-height: 32px;
+            background: white;
+            text-align: left;
+            font-size: 12px;
+        }
+        .header_top_nav{
+            position: absolute;
+            left: 190px;
+        }
+        #yongHu{
+            text-align: left;
+        }
+        #yongHu:hover{
+            color: orange;
+        }
+        #yongHu:hover #xinXi{
+            display: block;
+        }
+        #zhuX span:hover{
+            color: red;
+        }
+        #logo{
+            float: left;
+        }
+        .header_top_nav li{
+            font-size: 18px;
+            float: left;
+        }
+        .header_top_nav li.active{
+            color: #00c1de;
+            border-bottom: 3px #00c1de solid;
+        }
+        .header_top_nav li:hover{
+            color: #00c1de;
+            border-bottom: 3px #00c1de solid;
+        }
+        #ad{
+            width: 1000px;
+            height: 500px;
+            background: green;
+            position: fixed;
+            z-index: 11111111;
+            left: 50%;
+            margin-left: -500px;
+            display: none;
+        }
+        #mask{
+            width: 100%;
+            height: 100%;
+            background: rgba(63, 67, 58, 0.54);
+            position:fixed;
+            z-index: 11110;
+            display: none;
+         }
+        .login{
+            width: 400px;
+            height: 400px;
+            position:fixed;
+            left: 50%;
+            top:50%;
+            margin-left: -250px;
+            margin-top: -200px;
+            z-index: 11111;
+            background: white;
+            box-shadow: 0 0 4px #ddd;
+            display: none;
+        }
+        #error{
+            position: absolute;
+            top: 60px;
+            width:300px;
+            height: 30px;
+            margin-left: 50px;
+            background: url("login/3.png") no-repeat;
+            display: none;
+        }
+        #error span{
+            position: absolute;
+            font-size: 14px;
+            margin-left: 30px;
+        }
+        #vip{
+            position: relative;
+            width: 100%;
+            height: 50px;
+            background: #43B413;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            color: white;
+        }
+        #vip span{
+            position: absolute;
+            right: 10px;
+            top: -10px;
+            cursor: pointer;
+        }
+        #txt{
+            width: 270px;
+            height: 35px;
+            font-size: 12px;
+            line-height: 35px;
+            margin-left: 50px;
+            margin-top: 40px;
+            outline: none;
+            border: 1px solid #ddd;
+            padding-left: 30px;
+            background: url("login/1.png") no-repeat;
+        }
+        #pwd{
+            width: 270px;
+            height: 35px;
+            font-size: 12px;
+            line-height: 35px;
+            margin-left: 50px;
+            margin-top: 20px;
+            outline: none;
+            border: 1px solid #ddd;
+            padding-left: 30px;
+            background: url("login/2.png") no-repeat;
+        }
+        #ckx{
+            width: 300px;
+            height: 30px;
+            position: relative;
+            left: 50px;
+            font-size: 12px;
+            line-height: 30px;
+            margin-top: 10px;
+            padding-left: 15px;
+        }
+        #ckx input{
+            position: absolute;
+            left: 0;
+            top: 9px;
+        }
+        #ckx span{
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+        }
+        #login_But{
+            width: 300px;
+            height: 30px;
+            margin-top: 10px;
+            margin-left: 50px;
+            font-size: 18px;
+            background: #ff8800;
+            color:white;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+        #zc{
+            margin-top:50px;
+            margin-left: 50px;
+            font-size: 14px;
+            color: rgb(255, 102, 0);
+            cursor: pointer;
+        }
+        .reg{
+            position: relative;
+           /* display: none;*/
+        }
+        .reg_top{
+            width: 100%;
+            height: 100px;
+            position: fixed;
+            top: -110px;
+            left: 0;
+            z-index: 1111112;
+            border-bottom: 2px solid #43B413;
+            /*display: none;*/
+        }
+        #back{
+            width: 20px;
+            height: 20px;
+            position: fixed;
+            top: 160px;
+            right: 200px;
+            z-index: 1111113;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        .reg_mask{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 90px;
+            background: #dddddd;
+            /*background: rgba(0, 0, 0, 0.8);*/
+            background: url("regimg/2.png");
+            z-index: 1111111;
+            filter: blur(6px);
+            display: none;
+        }
+        .reg_reg{
+            width: 1200px;
+            height: 600px;
+            position: fixed;
+            top: 150px;
+            left: 50%;
+            margin-left: -600px;
+            z-index: 1111113;
+            display: none;
+        }
+        .reg_vip{
+            width: 100%;
+            height: 60px;
+            background: #43B413;
+            font-size: 23px;
+            color: white;
+            line-height: 60px;
+            text-align: center;
+        }
+        .reg_form{
+            width: 100%;
+            height: 540px;
+            background: white;
+        }
+        .reg_form dl{
+            width: 600px;
+            height: 450px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .reg_form dl dd{
+            position: relative;
+            top: 40px;
+            height: 50px;
+            margin-right: 160px;
+            text-align:right;
+        }
+        .reg_form dl dd input{
+            width: 280px;
+            height:30px;
+        }
+        #name input{
+            width: 280px;
+            height:30px;
+        }
+        #reg_yanZ input{
+            width: 180px;
+            margin-right: 100px;
+        }
+        #reg_yanZ img{
+            width: 100px;
+            height: 30px;
+            position: absolute;
+            right:0;
+            cursor: pointer;
+        }
+        #reg_yanZ p{
+            position: absolute;
+            right: -120px;
+            top: 0;
+
+        }
+        #reg_yanZ p span{
+            color: #43B413;
+            cursor: pointer;
+        }
+        #reg_Zc button{
+            width: 285px;
+            height: 50px;
+            background: #43B413;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: white;
+            font-size: 22px;
+        }
+        .tiShi{
+            position: absolute;
+            top: 85px;
+            right: 260px;
+        }
+        #qiangdu{
+            width:300px;
+            height: 35px;
+            position: absolute;
+            bottom: 50px;
+            display: none;
+            border: 1px solid #dddddd;
+            border-radius:5px;
+        }
+        #qiangdu li{
+            width:45px;
+            height: 20px;
+            float: left;
+            margin-left: 10px;
+            margin-top: 7px;
+            font-size: 12px;
+            border: 1px solid #dddddd;
+            border-radius:10px;
+        }
+        #qiangdu li:last-child{
+            width:55px;
+            text-align: center;
+            line-height: 20px;
+            border:1px;
+            color: white;
+        }
+        .tiShi div{
+            height: 30px;
+            margin-top: 20px;
+            background: url("regimg/4.png") 0 1px no-repeat;
+            padding-left: 25px;
+            opacity: 0;
+        }
+        .lesGo{
+            width: 800px;
+            height: 400px;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            margin-top: -200px;
+            margin-left: -400px;
+            background:white;
+            z-index: 1111114;
+            display: none;
+        }
+        .lesGo p{
+            position: absolute;
+            right: 400px;
+            top: 18px;
+        }
+        #touxiang{
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: -245px;
+            top: 15px;
+            border-radius: 80px;
+            overflow: hidden;
+        }
+        #txImg{
+            width: 100%;
+            height: 100%;
+            /*background: red;*/
+        }
+        #touxiang:hover button{
+            display: block;
+        }
+        #icon{
+            display: none;
+        }
+        #btn{
+            position: absolute;
+            left:11px;
+            top: 48px;
+            z-index:111 ;
+            cursor: pointer;
+            display:none;
+            background: #ffffff;
+            border: 1px solid #ffffff;
+            font-size: 12px;
+            width: 60px;
+            height: 16px;
+        }
+        #btn:hover{
+            border: 1px solid #dddddd;
+            box-shadow: 0 0 5px #26dd21;
+        }
+    </style>
+</head>
+<body>
+<div class="index">
+    <div id="ad"></div>
+    <div id="mask"></div>
+    <div class="login">
+        <div id="error"><span>请输入正确的密码</span></div>
+        <dl>
+            <dd id="vip">途牛会员登录<span>&times;</span></dd>
+            <dd><input id="txt" type="text" placeholder="手机号/会员名/昵称/邮箱"></dd>
+            <dd><input id="pwd" type="password"></dd>
+            <dd id="ckx"><input type="checkbox" >一周内自动登入<span>忘记密码？</span></dd>
+            <dd><a href="#"><input id="login_But" type="submit" value="登录"></a></dd>
+            <dd id="zc">立即注册，即可获得50元抵用券</dd>
+        </dl>
+    </div>
+    <div class="reg">
+        <div class="reg_top"><img src="regimg/1.png"></div>
+        <div class="reg_mask"><div style="width: 100%;height: 100%;background:rgba(0, 0, 0, 0.8); "></div></div>
+        <div class="reg_reg">
+            <div class="lesGo"><img src="regimg/5.png"><p>5秒钟后将自动登录···</p></div>
+            <div class="reg_vip">途牛会员注册<div id="back">&times;</div></div>
+            <div class="reg_form">
+                <dl>
+                    <dd id="name">用户名 : <input type="text" placeholder="昵称"></dd>
+                    <dd id="reg_txt">账号 : <input type="text" placeholder="请输入正确手机号"></dd>
+                    <dd id="reg_pwd">密码 :  <input type="password" placeholder="请输入密码"></dd>
+                    <dd id="reg_pwdSure">确认密码 : <input type="password" placeholder="再次输入相同的密码"></dd>
+                    <dd id="reg_yanZ">验证码 : <input type="text" placeholder="不区分大小写"><img src="regimg/3.png"><p>看不清 , <span>换一张</span></p></dd>
+                    <dd id="reg_Zc"><button style="background:#43B413;" >立即注册</button></dd>
+                </dl>
+                <div class="tiShi">
+                    <div id="name_ts">用户名不能为空</div>
+                    <div id="mobile_ts">请输入正确的手机号</div>
+                    <div>请输入6位数以上密码</div>
+                    <ul id="qiangdu">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li>强度较高</li>
+                    </ul>
+                    <div>输入的密码与上次不同</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="header_top">
+            <ul class="header_top_dl">
+                <li class="weiDengLu" id="login">登录</li>
+                <li class="weiDengLu zC">注册有礼</li>
+                <li class="yiDengLu">您好，</li>
+                <li class="yiDengLu" id="yongHu"><span id="username"></span><img id="vipLogo" src="login/4.png"><div id="xinXi">
+                    <div id="zhuX"><span id="logout">退出</span><div id="touxiang">
+                        <div id="txImg"><img></div>
+                        <input type="file" id="icon">
+                        <button id="btn">更换头像</button>
+                    </div>
+
+                    </div>
+                </div></li>
+                <li>我的订单</li>
+            </ul>
+            <img id="hot" src="css/hot.png">
+            <ul class="header_top_nav">
+                <img id="logo" src="css/logo.png" width="112.5px" height="60px">
+                <li class="active">首页</li>
+                <li>最新活动</li>
+                <li>跟团游</li>
+                <li>自助游</li>
+                <li>出游服务</li>
+                <li>攻略</li>
+            </ul>
+        </div>
+    </div>
+    <div class="body">
+        <div class="sy">
+        <div class="sy_top">
+            <input class="keyword" type="text" value="欧洲" style="    color: rgb(153, 153, 153);" >
+            <ul class="hot">
+                <li><a href="#">美国</a></li>
+                <li><a href="#">三亚</a></li>
+                <li><a href="#">日本</a></li>
+            </ul>
+        </div>
+        <div class="center2">
+            <div class="center2_left"></div>
+            <div class="center2_scroll">
+                <img src="img/sylb1.png">
+                <img id="ll" src="img/1.png">
+                <img id="rr" src="img/2.png">
+            </div>
+            <div class="center2_right"></div>
+            <div class="center2_tab">
+                <div class="center2_tab_left">
+                    <div></div>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="center2_tab_right"></div>
+            </div>
+            <div class="tab">
+                <div class="sy_7">
+                    <ul>
+                        <li class="liCss">周边精选<div class="sjx"></div></li>
+                        <li>踏青赏花<div ></div></li>
+                        <li>名山胜水<div ></div></li>
+                        <li>城市乐园<div ></div></li>
+                    </ul>
+                </div>
+                <div class="sy_6">
+                    <div><a><img src="syImg/1_1.png"></a></div>
+                    <div><a><img src="syImg/1_2.png"></a></div>
+                    <div><a><img src="syImg/1_3.png"></a></div>
+                    <div><a><img src="syImg/1_4.png"></a></div>
+                    <div><a><img src="syImg/1_5.png"></a></div>
+                    <div><a><img src="syImg/1_6.png"></a></div>
+                    <div><a><img src="syImg/1_7.png"></a></div>
+                    <div><a><img src="syImg/1_8.png"></a></div>
+                </div>
+            </div>
+        </div>
+        <div class="ctn">
+        </div>
+    </div>
+        <div class="zxhd">
+        <div class="banner1"></div>
+        <div class="center1">
+            <div class="mp"></div>
+            <div class="ipt">
+                <input id="ipt1" type="text" placeholder="请输入手机号">
+                <input id="ipt2" type="text" placeholder="请输入验证码">
+                <button id="btn1">获取验证码</button>
+                <button id="btn2">立即领取</button>
+                <div id="jGao"><span id="sp">请输入有效的11位手机号</span></div>
+                <div id="tiS">
+                    <div class="ban"></div>
+                    <div class="hJ">
+                        <div id="clean"></div>
+                        <img src="img/zzhd1.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cnt">
+            <img src="img/2_1.png">
+        </div>
+    </div>
+        <div class="gty">
+        <div class="sy_top">
+            <input class="keyword" type="text" value="欧洲" style="    color: rgb(153, 153, 153);" >
+            <ul class="hot">
+                <li><a href="#">美国</a></li>
+                <li><a href="#">三亚</a></li>
+                <li><a href="#">日本</a></li>
+            </ul>
+        </div>
+        <div class="center3">
+            <div class="center3_top"></div>
+            <div class="center3_left"></div>
+            <div class="center3_scroll">
+                <div id="loop"><img src="img/gty_4.png"><img src="img/gty_6.png"><img src="img/gty7.png"></div>
+            </div>
+            <div class="gty5">
+                <img id="gty5" src="img/gty_5.png">
+                <div class="gty5_mb1">
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                </div>
+            </div>
+            <div class="gty6">
+                <img src="img/gty6.png">
+                <div class="gty6_mb2">
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                    <div><a>温德米尔湖区游船，泰晤士游船，鱼和薯条餐 ，司导费用全含</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="zzy">
+        <div class="sy_top">
+            <input class="keyword" type="text" value="欧洲" style="    color: rgb(153, 153, 153);" >
+            <ul class="hot">
+                <li><a href="#">美国</a></li>
+                <li><a href="#">三亚</a></li>
+                <li><a href="#">日本</a></li>
+            </ul>
+        </div>
+        <div class="center4">
+            <div class="center4_top"></div>
+            <img src="img/zz3.png">
+            <img src="img/zzy4.png">
+            <img src="img/zzy5.png">
+        </div>
+    </div>
+        <div class="gd">
+            <div class="sy_top">
+                <input class="keyword" type="text" value="欧洲" style="    color: rgb(153, 153, 153);" >
+                <ul class="hot">
+                    <li><a href="#">美国</a></li>
+                    <li><a href="#">三亚</a></li>
+                    <li><a href="#">日本</a></li>
+                </ul>
+            </div>
+            <div class="center6">
+                <div class="center6_top"></div>
+                <div class="container6">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <img src="img/gd_3.png">
+                <img src="img/gd4.png">
+            </div>
+        </div>
+        <div class="gl">
+        <div class="gl_top">
+            <ul>
+                <li>攻略首页</li>
+                <li>达人玩法</li>
+                <li>旅游达人</li>
+                <li>途牛风向标</li>
+                <li>全球地主</li>
+            </ul>
+        </div>
+        <div>
+            <img src="img/gl1.png">
+            <input id="ip" type="text" placeholder="输出目的地/景点">
+            <img id="gl2" src="img/gl2.png">
+        </div>
+        <div class="center5">
+            <img src="img/gl3.png">
+            <img src="img/gl4.png">
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+        <img src="css/banquan.png">
+    </div>
+</div>
+<script>
+
+    //4个页面导航的焦点事件
+    var keyword=document.querySelectorAll(".keyword");
+    var hot=document.querySelectorAll(".hot");
+    //for循环 为每个input都加上获得焦点和失去焦点事件
+    for (var key=0;key<keyword.length;key++) {
+        //获得焦点
+        keyword[key].addEventListener("focus", function () {
+            for(var j=0;j<keyword.length;j++) {
+                keyword[j].value = "";
+                hot[j].style.display = "none"
+            }
+        });
+        //失去焦点
+        keyword[key].addEventListener("blur", function () {
+            for(var j=0;j<keyword.length;j++) {
+                keyword[j].value = "欧洲";
+                hot[j].style.display = "block"
+            }
+        });
+    }
+    //首页
+
+    //实现首页幻灯片
+    var syScroll=document.querySelector(".center2_scroll");
+    var syImg=document.querySelector(".center2_scroll img");
+    var ll=document.querySelector("#ll");
+    var rr=document.querySelector("#rr");
+    var k=1;
+    function aa(){                          //
+        syImg.style.opacity=1;
+        tout=setTimeout(bb,2700);           //这些是自动切换下一张图片
+        k++;
+        (k==5)?k=1:"";
+        syImg.src="img/sylb"+k+".png";    //
+    }
+    function bb(){                               //
+        syImg.style.opacity=0.5;                //这个是加上一个透明度的过度
+        syImg.style.transition="opacity 0.6s";//
+    }
+    var tout=setTimeout(bb,2700);
+    var loop=setInterval(aa,3000);
+    //鼠标放到整个div上 所有的效果取消透明度回到1
+    syScroll.addEventListener("mouseover",function(){
+        clearInterval(loop);
+        clearTimeout(tout);
+        syImg.style.opacity=1;
+    });
+    block(syImg,ll,rr,0.3,0.3);//鼠标放倒图片两边消失
+    block(ll,ll,rr,0.6,0.3);//放到左边左边变深
+    block(rr,ll,rr,0.3,0.6);//放到右边右边变深
+    //鼠标拿走 幻灯片继续
+    syScroll.addEventListener("mouseout",function(){
+        tout=setTimeout(bb,2500);
+        loop=setInterval(aa,3000);
+        ll.style.opacity=0;
+        rr.style.opacity=0;
+    });
+    //点击右边图片下一张
+    rr.addEventListener("click",function(){
+        k++;
+        (k==5)?k=1:"";
+        syImg.style.opacity=0.5;
+        syImg.style.transition="opacity 0.3s";
+        setTimeout(function(){
+            syImg.src="img/sylb"+k+".png";
+            syImg.style.opacity=1;
+        },300);
+    });
+    //点击左边图片下一张
+    ll.addEventListener("click",function(){
+        k--;
+        (k==0)?k=4:"";
+        syImg.style.opacity=0.5;
+        syImg.style.transition="opacity 0.3s";
+        setTimeout(function(){
+            syImg.src="img/sylb"+k+".png";
+            syImg.style.opacity=1;
+        },300);
+    });
+    //下面的tab页 每页连接8个div8张图片
+    var syLis=document.querySelectorAll(".sy_7 ul li");
+    var s6Img=document.querySelectorAll(".sy_6 img");
+    var jt=document.querySelectorAll(".sy_7 div");
+    for(var n=0;n<syLis.length;n++){
+        syLis[n].setAttribute("index1",n+1);
+        syLis[n].addEventListener("mouseover",function(){
+            for (var j=0;j<syLis.length;j++){
+                syLis[j].className="";
+                jt[j].style.display="none";
+            }
+            this.className="liCss";
+            var ind=this.getAttribute("index1");
+            this.querySelector("div").style.display="block";
+            //for循环让8张图片同时跟着lis的选择切换路径
+            //路径格式1_1 1_2 ... 2_1 2_2 2_3 ...
+            //ind对应前面的数字 下面循环的m对应后面的数字
+            for(var m=0;m<s6Img.length;m++){
+                s6Img[m].src="syImg/"+ind+"_"+(m+1)+".png"
+            }
+        })
+    }
+
+
+
+    //最新活动
+    var ipt1=document.querySelector("#ipt1");
+    var ipt2=document.querySelector("#ipt2");
+    var btn1=document.querySelector("#btn1");
+    var btn2=document.querySelector("#btn2");
+    var jGao=document.querySelector("#jGao");
+    var tiS=document.querySelector("#tiS");
+    var clean=document.querySelector("#clean");
+    clean.addEventListener("click",function(){
+        tiS.style.display="none"
+    });
+    function jg(element){
+        return element.addEventListener("click",function(){
+
+            //判断输入的不是11位的时候
+            if(ipt1.value.length!=11){
+                jGao.innerHTML="请输入有效的11位手机号";//警告框的内容
+                jGao.style.display="block";//警告框出现
+                setTimeout(function(){
+                    jGao.style.display="none";//两秒后警告框消失
+                },2000);
+                //为11位的时候
+            }else if(ipt1.value.length==11){
+                jGao.innerHTML="验证码已发送，30分钟内有效";
+                jGao.style.display="block";
+                btn1.disabled = true;//获取按钮获取之后不能再按
+                btn1.style.background="#666666";
+                var i=60;
+                //让它又个60秒的倒计时
+                var setInt=setInterval(function(){
+                    i--;
+                    btn1.innerHTML=i+"s内不能再次获取"
+                },1000);
+                //倒计时完了之后又回到原来的状态
+                setTimeout(function(){
+                    clearInterval(setInt);
+                    btn1.innerHTML="获取验证码";
+                    btn1.style.background="#3175b2";
+                    btn1.disabled =false;
+                },60000);
+                //两秒后警告框消失
+                setTimeout(function(){
+                    jGao.style.display="none"
+                },2000)
+            }
+        });
+    }
+    jg(btn1);//第一个获取验证码按钮
+    //这个是立即领取按钮
+    btn2.addEventListener("click",function(){
+        if(ipt1.value.length!=11){
+            jGao.innerHTML="请输入有效的11位手机号";
+            jGao.style.display="block";
+            setTimeout(function(){
+                jGao.style.display="none"
+            },2000)
+        }else if(ipt1.value.length==11){//手机号对的情况下才有用
+            //不是六位数就显示请输入六位数
+            if(ipt2.value.length!=6){
+                jGao.innerHTML="请输入6位数的验证码";
+                jGao.style.display="block";
+                setTimeout(function(){
+                    jGao.style.display="none"
+                },2000);
+            }else if(ipt2.value.length==6){
+                //若是6位数 但不是指定的 那么显示验证码错误
+                if(ipt2.value!=123456){
+                    jGao.innerHTML="验证码错误";
+                    jGao.style.display="block";
+                    setTimeout(function(){
+                        jGao.style.display="none"
+                    },2000);
+                    //符合所有条件显示领取信息显示
+                }else if(ipt2.value==123456){
+                    tiS.style.display="block"
+                }
+            }
+        }
+    });
+
+
+    //跟团游
+
+    //图片一个简单的轮播
+    //显示栏是一个大DIV 再把所有要轮播的图片让在另一个大DIV里面的小div里面
+    /*
+    *   <div class="center3_scroll"> 大DIV
+            <div id="loop">小div要加position re...什么的
+                 <img src="img/gty_4.png">
+                 <img src="img/gty_6.png">
+                 <img src="img/gty7.png">
+            </div>
+        </div>
+    * */
+    //找到小div
+    var gtyScroll=document.querySelector(".center3_scroll #loop");
+    var a=-990;//一张图片的长度
+    setInterval(function(){
+        gtyScroll.style.left=a+"px";//控制它的position left的值
+        gtyScroll.style.transition="left 1s";//加个过度
+        a-=990;//每次过一张图的长度
+        if(-a>=2970){//判断超过了所有图片的总合 回到起点
+            a=0
+        }
+
+    },5000);
+
+
+
+    //攻略
+    var ip=document.querySelector("#ip");
+
+
+//导航
+    var sy=document.querySelectorAll(".sy");
+    var zxhd=document.querySelectorAll(".zxhd");
+    var gty=document.querySelectorAll(".gty");
+    var zzy=document.querySelectorAll(".zzy");
+    var zty=document.querySelectorAll(".zty");
+    var zdy=document.querySelectorAll(".zdy");
+    var gl=document.querySelectorAll(".gl");
+    var gd=document.querySelectorAll(".gd");
+    var lis=document.querySelectorAll(".header_top_nav li");
+    //var Arr=[sy,zxhd,gty,zzy,zty,zdy,gl,gd];
+    var divs=document.querySelectorAll(".body>div");
+    for (var i=0;i<lis.length;i++){
+        lis[i].setAttribute("index",i);
+        lis[i].addEventListener("click",function(){
+            for(var j=0;j<lis.length;j++){
+                lis[j].className="";
+                divs[j].style.display="none"
+            }
+            this.className="active";
+            divs[this.getAttribute("index")].style.display="block"
+        })
+    }
+</script>
+<script>
+    setTimeout(function(){
+        $("#ad").animate({
+            height:0
+        },1000)
+    },4000);
+    ////更换头像//////
+    /*var icon=document.querySelector("#icon");
+    var btn=document.querySelector("#btn");
+    var preview=document.querySelector("#txImg img");
+    btn.addEventListener("click",function(){
+        icon.click();
+    });
+    icon.addEventListener("change",function(){
+        var fr=new FileReader;
+        fr.readAsDataURL(icon.files[0]);
+        fr.addEventListener("load",function(){
+            var src=this.result;
+            preview.src=this.result;
+            preview.style.width="80px";
+            preview.style.height="80px";
+            sessionStorage.setItem("src",src);
+        })
+    })*/
+</script>
+<script>
+    var qiangdu=document.querySelector("#qiangdu");
+    var lis=document.querySelectorAll("#qiangdu>li");
+    var pwd=document.querySelector("#reg_pwd input");
+    var text=document.querySelector("#qiangdu li:last-child");
+    pwd.addEventListener("keyup",function(){
+        qiangdu.style.display="block";
+        switch (pwd_validate(pwd.value)){
+            case 4:
+                text.innerHTML="密码为空";
+                lis[0].style.background="#fff";
+                lis[1].style.background="#fff";
+                lis[2].style.background="#fff";
+                lis[3].style.background="#fff";
+                qiangdu.style.background="#EE0A38";
+                qiangdu.style.display="none";
+                break;
+            case 3:
+                text.innerHTML="强度低";
+                lis[0].style.background="red";
+                lis[1].style.background="#fff";
+                lis[2].style.background="#fff";
+                lis[3].style.background="#fff";
+                qiangdu.style.background="#E33A20";
+                break;
+            case 2:
+                text.innerHTML="强度中";
+                lis[0].style.background="#DDc94d";
+                lis[1].style.background="#DDc94d";
+                lis[2].style.background="#fff";
+                lis[3].style.background="#fff";
+                qiangdu.style.background="#DDc94d";
+                break;
+            case 1:
+                text.innerHTML="强度较高";
+                lis[0].style.background="#07Db00";
+                lis[1].style.background="#07Db00";
+                lis[2].style.background="#07Db00";
+                lis[3].style.background="#fff";
+                text.style.color="#fff";
+                qiangdu.style.background="#07Db00";
+                break;
+            case 0:
+                text.innerHTML="强度高";
+                lis[0].style.background="green";
+                lis[1].style.background="green";
+                lis[2].style.background="green";
+                lis[3].style.background="green";
+                text.style.color="green";
+                qiangdu.style.background="#fff";
+                break;
+        }
+
+    });
+    function pwd_validate(content){
+        var num=0;
+        if(!/[\d]/.test(content)){
+            num+=1;
+        }
+        if(!/[a-z]/.test(content)){
+            num+=1;
+        }
+        if(!/[A-Z]/.test(content)){
+            num+=1;
+        }
+        if(!/[\W]/.test(content)){
+            num+=1;
+        }
+        return num;
+    }
+
+</script>
+</body>
+</html>
