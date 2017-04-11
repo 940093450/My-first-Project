@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function setCookie(_name,_value,_expires,_path,_domain,_secure){
+        var cookieText=_name+"="+_value;
+        if (_expires instanceof Date){
+            cookieText+=";expires="+_expires;
+        }
+        if (_path){
+            cookieText+=";path="+_path;
+        }
+        if (_domain){
+            cookieText+=";domain="+_domain
+        }
+        if (_secure){
+            cookieText+=";secure"
+        }
+    document.cookie=cookieText;
+    //return cookieText;
+    }
+    var stopTime=new Date("2025-10-01");
+    //document.write(setCookie("username","lsl",stopTime))
+    setCookie("username","lss")
+</script>
+
+</body>
+</html>
