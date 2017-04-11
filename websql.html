@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //创建数据库
+    var db=openDatabase("member","1.0","haiwen",2*1024*1024,function(){
+        console.log("数据库创建成功")
+    });
+    //sql语句操作数据库
+    db.transaction(function(tx){
+        //sql语句创建表
+        tx.executeSql("create table if not exists member(id integer primary key asc,username text)");
+        //向表中插入数据
+        tx.executeSql("insert into member(username)values('tom')");
+    });
+</script>
+</body>
+</html>
