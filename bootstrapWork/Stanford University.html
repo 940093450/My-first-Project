@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <script src="js/jquery-3.2.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        .header{
+            width: 100%;
+            padding: 0;
+        }
+        .header_top{
+            height: 86px;
+            background: #8c1515;
+        }
+        #nav li{
+            padding: 0;
+            line-height: 32px;
+            list-style: none;
+        }
+        #nav li a{
+            text-decoration: none;
+            color: #2e2d29;
+        }
+        .header_bottom{
+            height: 32px;
+            background:#f2f1eb;
+        }
+        .content{
+            height: 1500px;
+            background:white;
+            position: relative;
+        }
+        .TS{
+            margin-top:50px;
+            margin-bottom: 0;
+        }
+        .hengxian{
+            margin-top:0;
+        }
+        .scroll li{
+            border: 1px solid #8c1515;
+            width: 12px;
+            height: 12px;
+            margin: 2px;
+        }
+        .scroll li.active{
+            background:#8c1515;
+            width: 12px;
+            height: 12px;
+            margin: 2px;
+        }
+        .content_ct{
+            margin-top: 15px;
+            height: 261px;
+        }
+        .content_ct>div{
+            height: 261px;
+        }
+        #text{
+            height: 91px;
+            font-size: 18px;
+            color: #2e2d29;
+        }
+        #text a{
+            color: #8c1515;
+        }
+        .content_bt{
+            margin-top: 30px;
+            height: 91px;
+        }
+        .content_bt>div{
+            height: 91px;
+        }
+        .content_ft{
+            margin-top: 30px;
+            height: 400px;
+        }
+        .content_ft div{
+            height: 400px;
+        }
+        #left i{
+            font-size: 28px;
+            color: rgba(255, 255, 255, 0.60);
+        }
+        .footer{
+            height: 200px;
+            background:#f2f1eb;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="header_top">
+        <div class="container" style="height: 100%;padding: 0">
+            <img src="img/stanforduniversity.png" style="height: 46px;margin-top: 22px">
+        </div>
+    </div>
+    <div class="header_bottom">
+        <div class="container" style="height: 100%;">
+            <ul id="nav" class="row" style="height: 100%;padding:0">
+                <li class="col-md-2"><a href="#">About Stanford</a></li>
+                <li class="col-md-2"><a href="#">Admission</a></li>
+                <li class="col-md-2"><a href="#">Academics </a></li>
+                <li class="col-md-2"><a href="#">Research</a></li>
+                <li class="col-md-2"><a href="#">Campus Life</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container content" style="padding: 0;margin-top: 15px;overflow: hidden">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators scroll">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <a href="http://www.baidu.com"><img src="img/scroll1.jpg" alt="..."></a>
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+            <div class="item">
+                <img src="img/scroll2.jpg" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+            <div class="item">
+                <img src="img/scroll3.jpg" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+            <div class="item">
+                <img src="img/scroll4.jpg" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+            <div class="item">
+                <img src="img/scroll5.jpg" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <h3 class="TS">Top Stories</h3>
+    <div class="nav nav-tabs hengxian"></div>
+    <div class="row content_ct">
+        <div class="col-md-3 ">
+            <img src="img/ct1.jpg">
+        </div>
+        <div class="col-md-3 ">
+            <img src="img/ct2.jpg">
+        </div>
+        <div class="col-md-3 ">
+            <img src="img/ct3.jpg">
+        </div>
+        <div class="col-md-3 bg-warning"></div>
+    </div>
+    <div class="row content_bt text-center">
+        <div class="col-md-9 alert" style="background:#f3f1eb">
+                <div class="col-md-3">
+                    <div class="col-sm-5" style="height: 42px;font-size: 11px">12 HR.
+                        AGO</div>
+                    <div class="col-sm-7" style="height: 40px;line-height:40px;background: white;">
+                        <i class="fa fa-twitter" aria-hidden="true" style="color:#0098db"></i>
+                        <span style="font-size: 12px">@Stanford</span>
+                    </div>
+                </div>
+                <div class="col-md-9" id="text">
+                    Kids with a growth mindset do better, persist longer and are more successful, <a href="#">@joboaler</a>says. <a href="#">stanford.io/2okKSyR</a>
+                </div>
+        </div>
+        <div class="col-md-3 bg-success"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="nav nav-tabs"></div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="nav nav-tabs"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="nav nav-tabs"></div>
+        </div>
+    </div>
+    <div class="row content_ft">
+        <div class="col-lg-9 bg-warning">
+            <div class="row">
+                <div class="col-sm-6 bg-danger"></div>
+                <div class="col-sm-6 bg-primary"></div>
+            </div>
+        </div>
+        <div class="col-lg-3 bg-success"></div>
+    </div>
+</div>
+<div class="container-fluid footer"></div>
+</body>
+</html>
