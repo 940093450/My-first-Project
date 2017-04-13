@@ -3,11 +3,14 @@ body{
 }
 .header{
     height: 145px;
-    background:#2f3441;
     border-bottom: 5px solid white;
+    position: relative;
 }
 .header .header_top{
+    background:#2f3441;
     height: 60px;
+    position: fixed;
+    z-index: 100;
 }
 .header .header_top>div div{
     padding: 0;
@@ -42,7 +45,7 @@ body{
 }
 .wrap a{
     padding-left: 30px;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
 }
 .wrap a:hover{
@@ -106,9 +109,14 @@ body{
     width: 28px;
     height: 28px;
 }
+.header_bottom a{
+    color: #666666;
+}
 .header .header_bottom{
     height: 80px;
     background: white;
+    position: relative;
+    top: 60px;
 }
 .header_bottom_top{
     padding: 20px 0;
@@ -118,33 +126,39 @@ body{
     margin: 0;
     height: 21px;
 }
-.header_bottom_top ul li{
+.header_bottom_top>ul>li{
     list-style: none;
     float: left;
+
+}
+.header_bottom_top>ul>li>a{
+    text-decoration: none;
 }
 .header_bottom_bottom{
     padding: 0;
 }
 .header_bottom_bottom ul{
     padding: 0;
-    height: 19px;
+    height: 24px;
     width: 100%;
 }
 .header_bottom_bottom ul li{
+    height: 24px;
     list-style: none;
     float: left;
     margin-right: 25px;
-    padding: 2px;
+    padding: 2px 5px;
 }
 .header_bottom_bottom ul li a{
     text-decoration: none;
-
+}
+.header_bottom_bottom ul li a:hover{
+    color:#49Af4f;
 }
 .header_bottom_bottom ul li.active{
     background:#49Af4f ;
 }
 .header_bottom_bottom ul li a.active{
-
     color: white;
 }
 .slider{
@@ -156,25 +170,103 @@ body{
     height: 420px;
 }
 .slider_left{
-    width: 18%;
+    width: 18.5%;
 }
 .slider_left img{
     margin-top: 20px;
+    cursor: pointer;
 }
 .slider_center{
-    width: 61.7%;
-    /*padding:0 44px;*/
+    width: 62.7%;
+    padding:0 20px;
 }
 .slider_right{
-    width: 20.3%;
+    width: 18.8%;
+    padding: 0;
+}
+.slider_right_header{
+    height: 40px;
+    width: 100%;
+    padding: 0 30px 0 30px;
+    background: #414141;
+}
+.slider_right_header>a{
+    text-decoration: none;
+    display:inline-block;
+    height: 40px;
+    padding:0 2px;
+    line-height: 38px;
+    color: #b4c0c3;
+    cursor: pointer;
+}
+.slider_right_header>a.active{
+    color: white;
+    border-bottom:2px solid #10ae58;;
+}
+.slider_right_content{
+    height: 380px;
+    width: 100%;
+    padding: 10px 23px;
+    background: #5a5a5a;
+}
+.page1{
+    display: block;
+}
+.page2{
+    display: none;
+}
+.slider_right_content>div{
+    height: 36px;
+    width: 179px;
+    padding: 8px 0;
+}
+.slider_right_content>div>div{
+    width: 20px;
+    height: 20px;
+    color: #aaaaaa;
+    margin-right: 10px;
+    display: inline-block;
+    float: left;
+    border: 1px solid #aaa;
+    font-size: 12px;
+    text-align: center;
+    line-height: 18px;
+}
+.slider_right_content>div>div.active{
+    color: #fff;
+    background-color: #39a030;
+    border-color: #39a030;
+}
+.slider_right_content>div>a{
+    color: #aaa;
+    font-size: 14px;
+    display:inline-block;
+    line-height: 20px;
+    text-overflow:ellipsis;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 148px;
+    text-decoration: none;
+}
+.slider_right_content>div>a:hover{
+    color: #3aa131;
 }
 #kecheng_nav{
     height: 40px;
     margin-bottom: 20px;
     background: white;
+    position: relative;
 }
 #kecheng_nav>div{
     height: 40px;
+}
+#mao{
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -60px;
+    left: 0;
 }
 #kecheng_nav>div li{
     list-style: none;
@@ -189,10 +281,11 @@ body{
     width: 60px;
 }
 #kecheng_left>ul li{
-    display: inline-block;
+    float: left;
     height: 40px;
     width: 88px;
     padding: 10px 16px;
+    cursor: pointer;
 }
 #kecheng_left>ul li:hover{
     color:#49Af4f;
@@ -207,6 +300,15 @@ body{
     height: 40px;
     padding: 10px 0;
     cursor: pointer;
+}
+.jiage{
+    width: 70px;
+    height: 40px;
+    padding: 0 12px;
+    text-align: center;
+}
+.jiage i{
+    font-size: 16px;
 }
 #kecheng_right>ul li.active{
     color:#49Af4f;
@@ -355,4 +457,55 @@ body{
 }
 .app a:nth-child(3){
     background: url("../img/app.png");
+}
+.backTop{
+    width: 62px;
+    height: 224px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    font-size: 14px;
+    position: fixed;
+    right: 30px;
+    bottom: 113px;
+    z-index: 1000;
+    display: none;
+}
+.backTop>div{
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 70px;
+    cursor: pointer;
+    color: #333;
+}
+.backTop>div:hover{
+    background: #3aa131;
+    color: white;
+}
+.backTop>div>i{
+    font-size: 35px;
+
+}
+.backTop>div>i.active{
+    font-size: 14px;
+    font-style: normal;
+    display:block;
+    width: 60px;
+    height: 60px;
+    padding: 10px 15px;
+    color: white;
+}
+.backTop>div>span.active{
+    display:block;
+    width: 60px;
+    height: 60px;
+    padding: 10px 15px;
+}
+.backTop>span{
+    display: block;
+    width: 50px;
+    height: 1px;
+    background: #cccccc;
+    margin: 10px auto;
 }
